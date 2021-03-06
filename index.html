@@ -18,9 +18,31 @@
         </header>
 
         <main>
-            <h1>Coding Quiz!</h1>
-            <p>Answer the following questions within the time limit!</p>
-            <button>Start Quiz!</button>
+            <!--Initial welcome prompt-->
+            <div class = "container" id = "home"></div>
+                <div class = "homeContainer"></div>
+                    <h1>Coding Quiz!</h1>
+                    <p>Answer the following questions within the time limit!</p>
+                    <button id = "start-btn">Start Quiz!</button>
+
+            <!--Question/Answer prompts-->
+            <div class = "quizHidden" id = "quiz" >
+                <div id = "questionContainer">
+                    <div id = "questions">Question</div>
+                    <div id = "answerButtons" class = "btn-grid"></div>
+                        <button class = "btn">Answer 1</button>
+                        <button class = "btn">Answer 2</button>
+                        <button class = "btn">Answer 3</button>
+                        <button class = "btn">Answer 4</button>
+                    <div id = "controls">
+                        <button id = "next-btn">Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--Submit name and score prompt-->
+            <div class = "finalPage" id = "submitScore">
+            </div>
         </main>
         
         <script src="assets/script.js"></script>
