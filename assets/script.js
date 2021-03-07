@@ -36,12 +36,11 @@ highScoreButton.addEventListener("click", function (){
 
 // starting the quiz
 function startQuiz() {
+    home.classList.add("hide");
+    quiz.classList.remove("hide");
     shuffleQuestions = question.sort(() => Math.random() - 0.5);
     currentQuestion = 0;
     rightAnswers = 0;
-    
-    home.classList.add("hide");
-    quiz.classList.remove("hide");
     
     timeRemain();
     nextQuestion();

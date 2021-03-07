@@ -10,8 +10,8 @@
 
     <body>
         <!--High score button and time left shown at the top-->
-        <header>
-            <button id = "hsBtn">View High Scores</button>
+        <header class = theHeader>
+            <button class = "hs-btn" id = "hsBtn">View High Scores</button>
             <div id = "timer">
                 <p>Time Left: <span id = "time">0</span></p>
             </div>
@@ -19,12 +19,13 @@
 
         <main>
             <!--Initial welcome prompt-->
-            <div class = "container" id = "home"></div>
-                <div class = "homeContainer"></div>
+            <div class = "container" id = "home">
+                <div class = "homeContainer">
                     <h1>Coding Quiz!</h1>
                     <p>Answer the following questions within the time limit!</p>
-                    <button id = "start-btn">Start Quiz!</button>
-
+                    <button id = "start-btn" class = start-btn>Start Quiz!</button>
+                </div>
+            </div>
             <!--Question/Answer prompts-->
             <div class = "quizHidden hide" id = "quiz" >
                 <div id = "questionContainer">
