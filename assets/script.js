@@ -24,6 +24,8 @@ nextButton.addEventListener("click", () => {
 submitButton.addEventListener("click", function(x) {
     x.stopPropagation();
     addScore();
+
+    window.location.href = "highscore.html";
 });
 
 // starting the quiz
@@ -42,10 +44,10 @@ function startQuiz() {
 function timeRemain () {
     quizTime = setInterval(() => {
         if (timerLeft > 0) {
-            timerEl.textContent = timerLeft;
+            timerEl.textContent = "Time Left: " + timerLeft;
             timerLeft--;
         } else if (timerLeft === 0) {
-            timerEl.textContent = timerLeft;
+            timerEl.textContent = "Time Left: " + timerLeft;
             timerLeft--;
         } else {
             endQuiz();
@@ -141,3 +143,29 @@ function addScore () {
     highScores.push(newScore);
     localStorage.setItem("highScores", JSON.stringify(highScores));
 }
+
+// high score page
+var restartBtn = document.querySelector("#restartBtn");
+var clearBtn = document.querySelector("#clearBtn");
+var topScore = JSON.parse(localStorage.getItem("topScores") || "[]");
+var listScores = document.getElementById("score-list")
+
+// sorts scores from high to low
+topScore.sort(function (a, b) {
+    return b.score - a.score;
+})
+
+for (var i = 0; i < topScore.length; i++) {
+    var newLi = document.createElement("li");
+    newLi.textContent = topScore[i].name + "  -  " + topScore[i].score;
+    listScores.appendChild(newLi);
+}
+
+clearBtn.addEventListener("click", function() {
+    localStorage.clear();
+    window.location.reload();
+});
+
+restartBtn.addEventListener("click", function() {
+    location.href = "index.html";
+});
