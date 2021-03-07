@@ -1,5 +1,6 @@
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
+var submitButton = document.getElementById("submit-btn");
 var questionEl = document.getElementById("questions");
 var answerEl = document.getElementById("answerButtons");
 var timerEl = document.getElementById("timer");
@@ -8,7 +9,7 @@ var quiz = document.getElementById("quiz");
 var submitScore = document.getElementById("submitScore")
 
 var timerLeft = 100;
-var shuffleQuestions, currentQuestion, quizTime, userName;
+var shuffleQuestions, currentQuestion, quizTime, userNameInput;
 var rightAnswers = 0;
 
 // getting start button to work to start quiz
@@ -19,6 +20,12 @@ nextButton.addEventListener("click", () => {
     currentQuestion++;
     nextQuestion();
 })
+// getting submit button to work
+submitButton.addEventListener("click", function(x) {
+    x.stopPropagation();
+    addScore();
+});
+
 // starting the quiz
 function startQuiz() {
     shuffleQuestions = question.sort(() => Math.random() - 0.5);
@@ -48,14 +55,14 @@ function timeRemain () {
 
 function showQuestion(question) {
     questionEl.innerHTML = question.question;
-    question.answers.forEach(answer => {
+    question.answer.forEach(answer => {
         var button = document.createElement("button");
         button.innerText = answer.text;
         button.classList.add("btn");
         if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
-        button.addEventListener("click", selectAnswer);
+        button.addEventListener("click", chooseAnswer);
         answerEl.appendChild(button);
     })
 }
@@ -121,4 +128,16 @@ function endQuiz() {
     quiz.classList.add("hide");
     submitScore.classList.remove("hide");
     clearInterval(quizTime);
+}
+
+// submitting score
+function addScore () {
+    userNameInput = document.getElementById("").value.trim()
+    var newScore = {
+        name: userNameInput,
+        score: rightAnswers,
+    };
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+    highScores.push(newScore);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
 }
