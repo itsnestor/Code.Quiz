@@ -1,6 +1,7 @@
 var startButton = document.getElementById("start-btn");
 var nextButton = document.getElementById("next-btn");
 var submitButton = document.getElementById("submit-btn");
+var highScoreButton = document.getElementById("hsBtn");
 var questionEl = document.getElementById("questions");
 var answerEl = document.getElementById("answerButtons");
 var timerEl = document.getElementById("timer");
@@ -28,11 +29,17 @@ submitButton.addEventListener("click", function(x) {
     window.location.href = "highscore.html";
 });
 
+//high score button to work
+highScoreButton.addEventListener("click", function (){
+    window.location.href = "highscore.html";
+})
+
 // starting the quiz
 function startQuiz() {
     shuffleQuestions = question.sort(() => Math.random() - 0.5);
     currentQuestion = 0;
     rightAnswers = 0;
+    
     home.classList.add("hide");
     quiz.classList.remove("hide");
     
