@@ -143,8 +143,9 @@ function addScore () {
     userNameInput = document.getElementById("userName").value.trim()
     var newScore = {
         name: userNameInput,
-        score: rightAnswers,
+        score: rightAnswers
     };
+    console.log(newScore);
     var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
     highScores.push(newScore);
     localStorage.setItem("highScores", JSON.stringify(highScores));

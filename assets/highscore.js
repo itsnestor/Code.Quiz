@@ -1,16 +1,16 @@
 var restartBtn = document.querySelector("#restart-Btn");
 var clearBtn = document.querySelector("#clear-Btn");
-var topScore = JSON.parse(localStorage.getItem("topScores") || "[]");
+var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
 var listScores = document.getElementById("score-list")
 
 // sorts scores from high to low
-topScore.sort(function (a, b) {
+highScores.sort(function (a, b) {
     return b.score - a.score;
 })
 
-for (var i = 0; i < topScore.length; i++) {
+for (var i = 0; i < highScores.length; i++) {
     var newLi = document.createElement("li");
-    newLi.textContent = topScore[i].name + "  -  " + topScore[i].score;
+    newLi.textContent = highScores[i].name + "  -  " + highScores[i].score;
     listScores.appendChild(newLi);
 }
 
