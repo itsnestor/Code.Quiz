@@ -10,9 +10,61 @@ var submitScore = document.getElementById("submitScore")
 var timerLeft = 100;
 var shuffleQuestions, currentQuestion, quizTime, userName;
 var rightAnswers = 0;
+var questions = [
+    {
+        question: "Where is my question?",
+        answers: [
+            { text: "Answer 1", correct: false}
+            { text: "Answer 2", correct: false}
+            { text: "Answer 3", correct: true}
+            { text: "Answer 4", correct: false}
+        ],
+    },
+
+    {
+        question: "Where is my question?",
+        answers: [
+            { text: "Answer 1", correct: false}
+            { text: "Answer 2", correct: false}
+            { text: "Answer 3", correct: true}
+            { text: "Answer 4", correct: false}
+        ],
+    },
+
+    {
+        question: "Where is my question?",
+        answers: [
+            { text: "Answer 1", correct: false}
+            { text: "Answer 2", correct: false}
+            { text: "Answer 3", correct: true}
+            { text: "Answer 4", correct: false}
+        ],
+    },
+
+    {
+        question: "Where is my question?",
+        answers: [
+            { text: "Answer 1", correct: false}
+            { text: "Answer 2", correct: false}
+            { text: "Answer 3", correct: true}
+            { text: "Answer 4", correct: false}
+        ],
+    },
+
+    {
+        question: "Where is my question?",
+        answers: [
+            { text: "Answer 1", correct: false}
+            { text: "Answer 2", correct: false}
+            { text: "Answer 3", correct: true}
+            { text: "Answer 4", correct: false}
+        ],
+    },
+];
 
 // getting start button to work to start quiz
 startButton.addEventListener("click", startQuiz);
+
 // getting next button to work
 nextButton.addEventListener("click", () => {
     currentQuestion++
@@ -43,4 +95,16 @@ function timeRemain () {
             endQuiz();
         }
     }, 1000);
+}
+
+function showQuestion(questions) {
+
+}
+
+
+
+// next question
+function nextQuestion () {
+    resetState();
+    showQuestion(shuffleQuestions[currentQuestion]);
 }
